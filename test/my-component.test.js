@@ -1,14 +1,18 @@
 import { fixture, fixtureCleanup, html, assert } from '@open-wc/testing';
-import '../space-functions.js';
+import { Component } from '../src';
 
-suite('<space-functions>', () => {
+if (!window.customElements.get('my-component')) {
+  window.customElements.define('my-component', Component);
+}
+
+suite('<my-component>', () => {
   teardown(() => {
     fixtureCleanup();
   });
 
   test('"myProperty" can be set via "my-property" attribute', async() => {
     const el = await fixture(html`
-      <space-functions my-property="foo"></space-functions>
+      <my-component my-property="foo"></my-component>
     `);
 
     assert.strictEqual(el.myProperty, 'foo');
