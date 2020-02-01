@@ -1,0 +1,69 @@
+:host {
+  display: block;
+  --spacer: 8px;
+}
+
+@function gu($units) {
+  @return calc(var(--spacer) * #{$units});
+}
+
+@mixin margin($i) {
+  .m\:#{$i} {
+    margin: gu($i);
+  }
+}
+
+@mixin padding($i) {
+  .p\:#{$i} {
+    padding: gu($i);
+  }
+}
+
+@mixin margin-horizontal($i) {
+  .mh\:#{$i} {
+    margin-left: gu($i);
+    margin-right: gu($i);
+  }
+}
+
+@mixin margin-vertical($i) {
+  .mv\:#{$i} {
+    margin-top: gu($i);
+    margin-bottom: gu($i);
+  }
+}
+
+@mixin padding-horizontal($i) {
+  .ph\:#{$i} {
+    padding-left: gu($i);
+    padding-right: gu($i);
+  }
+}
+
+@mixin padding-vertical($i) {
+  .pv\:#{$i} {
+    padding-top: gu($i);
+    padding-bottom: gu($i);
+  }
+}
+
+@for $i from 0 through 2 {
+  @include margin($i);
+  @include padding($i);
+}
+
+@for $i from 1 through 2 {
+  @include margin-horizontal($i);
+  @include margin-vertical($i);
+
+  @include padding-horizontal($i);
+  @include padding-vertical($i);
+}
+
+@for $i from 0 through 5 {
+  .mt\:#{$i} { margin-top: gu($i); }
+  .mb\:#{$i} { margin-bottom: gu($i); }
+
+  .pt\:#{$i} { padding-top: gu($i); }
+  .pb\:#{$i} { padding-bottom: gu($i); }
+}

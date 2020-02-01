@@ -1,0 +1,38 @@
+{
+  "name": "my-component",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "dist/"
+  ],
+  "scripts": {
+    "test": "karma start --coverage",
+    "test:watch": "karma start --auto-watch=true --single-run=false --coverage",
+    "test:snapshots:prune": "karma start --coverage --prune-snapshots",
+    "test:snapshots:update": "karma start --coverage --update-snapshots",
+    "prestart": "rimraf build",
+    "start": "parcel demo/index.html --out-dir build",
+    "prebuild": "rimraf dist",
+    "build": "babel src --out-dir dist --plugins=@researchgate/babel-plugin-transform-scss-import-to-string,version --no-babelrc",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "lit-element": "^2.0.0",
+    "lit-html": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.7.4",
+    "@open-wc/testing": "2.0.0",
+    "@open-wc/testing-karma": "3.0.0",
+    "@researchgate/babel-plugin-transform-scss-import-to-string": "^1.0.0",
+    "babel-plugin-version": "^0.2.3",
+    "node-sass": "^4.13.1",
+    "parcel-bundler": "^1.12.4",
+    "regenerator-runtime": "^0.13.3",
+    "rimraf": "^3.0.0",
+    "webpack-merge": "4.1.5"
+  }
+}

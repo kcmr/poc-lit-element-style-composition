@@ -1,0 +1,15 @@
+{
+  "plugins": [
+    "@babel/plugin-syntax-import-meta",
+    "@researchgate/babel-plugin-transform-scss-import-to-string",
+    "version"
+  ],
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "modules": false
+      }
+    ]
+  ]
+}
