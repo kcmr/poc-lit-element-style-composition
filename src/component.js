@@ -12,9 +12,19 @@ class Patatas extends LitElement {
   }
 }
 
+/**
+ * Example component using multiple sources (a Class, an imported constant, a scss file) to compose its styles
+ *
+ * @element my-component
+ * @cssprop [--spacer=8px] Grid unit space
+ */
 export class Component extends LitElement {
   static get properties() {
     return {
+      /**
+       * Dummy property
+       * @attr my-property
+       */
       myProperty: {
         type: String,
         attribute: 'my-property'

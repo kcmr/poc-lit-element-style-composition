@@ -16,7 +16,8 @@
     "start": "parcel demo/index.html --out-dir build",
     "prebuild": "rimraf dist",
     "build": "babel src --out-dir dist --plugins=@researchgate/babel-plugin-transform-scss-import-to-string,version --no-babelrc",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "docs": "wca analyze src/component.js --outFile README.md"
   },
   "dependencies": {
     "lit-element": "^2.0.0",
@@ -33,6 +34,7 @@
     "parcel-bundler": "^1.12.4",
     "regenerator-runtime": "^0.13.3",
     "rimraf": "^3.0.0",
+    "web-component-analyzer": "^1.0.2",
     "webpack-merge": "4.1.5"
   }
 }
