@@ -1,4 +1,4 @@
-import { LitElement,  html, css } from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 import { spacing, composeStyles } from './utility-classes';
 import style from './component.scss';
 
